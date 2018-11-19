@@ -1,0 +1,30 @@
+{
+  "name": "delugexmlsync",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RTX/DellugeXMLSync.git"
+  },
+  "keywords": [
+    "deluge",
+    "xml",
+    "song",
+    "kit",
+    "files",
+    "samples"
+  ],
+  "author": "rotor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RTX/DellugeXMLSync/issues"
+  },
+  "homepage": "https://github.com/RTX/DellugeXMLSync#readme",
+  "devDependencies": {
+    "xml2js": "^0.4.19"
+  }
+}
