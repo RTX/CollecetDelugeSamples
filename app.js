@@ -20,10 +20,23 @@ fs.readFile(xmlFilePath, function(err, data){
     var fix ="<top>" + xmlData + "</top>";
     var jsonObj = parser.parse(fix );
 
+    //var count = jsonObj.top
+    
+
   // console.log( parser.validate(xmlData));
     //var jsonObj = parser.parse(xmlData);
     console.log("-----");
-    console.log(jsonObj);
+    
+    for(var i = 0;i <jsonObj.top.song.instruments.kit.length;i++)
+    {
+      for(var y=0;y < jsonObj.top.song.instruments.kit[i].soundSources.sound.length;y++)
+      {
+          console.log(jsonObj.top.song.instruments.kit[i].soundSources.sound[y].osc1.fileName);
+      // console.log(jsonObj.top.song.instruments.kit[i].soundSources.sound[y].osc1.fileName);
+      }
+      console.log("=====");
+    };
+    
 });
 
  
