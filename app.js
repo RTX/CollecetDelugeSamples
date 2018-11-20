@@ -1,14 +1,9 @@
 var fs = require('fs');
 var parser = require('fast-xml-parser');
 
-//var xmlFilePath = "Song008.xml"; //process.argv[2];
-//var delugeFolderPath = "/Users/rotemor/Downloads/Deluge+V2p0p0+factory+card+contents-2";
 var delugeRootFolderPath = process.argv[2];
 var delugeSongsFolder = delugeRootFolderPath + "/SONGS";
-
-
 var xmlData ="";
-
 
 fs.readdirSync(delugeSongsFolder).forEach(file => {
    fs.readFile(file, function(err, data){
@@ -27,9 +22,6 @@ fs.readdirSync(delugeSongsFolder).forEach(file => {
             };      
         };     
       };
-      console.log("----------------------------"); 
-         
-  })
- 
+      console.log("----------------------------");          
+  }) 
 });
-console.log("----- END -----------------------"); 
