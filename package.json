@@ -28,7 +28,6 @@
     "xml2js": "^0.4.19"
   },
   "dependencies": {
-    "fast-xml-parser": "^3.12.8",
     "node-datetime": "^2.1.2"
   }
 }
