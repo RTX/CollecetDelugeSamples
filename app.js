@@ -18,7 +18,7 @@ var consoleFont_FgWhite = "\x1b[37m"
 var delugeSongsFolder = "";
 // get Deluge root folder path 
 var delugeRootFolderPath = process.argv[2];
-
+var SongsSamplesFolderPath = delugeRootFolderPath + "/SAMPLES/SONGS_SAMPLES/";
 
 if(delugeRootFolderPath == undefined || delugeRootFolderPath == ""){
   logError("Please enter deluge Root folder path: - $node app.js [root folder path] ");  
@@ -34,6 +34,10 @@ function Scan(){
     console.log("");
     console.log(consoleFont_FgYellow,"----------------- Scan Start " + formatted +"-----------------",consoleFont_Reset);          
 
+    try{
+      fs.mkdirSync(SongsSamplesFolderPath,0744);
+    }catch(err){};
+
     fs.readdirSync(delugeSongsFolder).forEach(file => {
       if(file.startsWith("SONG"))
       fs.readFile(delugeSongsFolder + "/"+file, function(err, data){
@@ -41,11 +45,11 @@ function Scan(){
           var xmlRootNodeFix ="<root>" + xmlData + "</root>";
           var jsonObj = parser.parse(xmlRootNodeFix );
           var filename_noExt = file.split(".")[0];
-
-        // add flag   if()
           try{
-            fs.mkdirSync(delugeRootFolderPath + "/SAMPLES/"+filename_noExt, 0744);
+            fs.mkdirSync( SongsSamplesFolderPath +filename_noExt, 0744);
           }catch(err){};
+        // add flag   if()
+          
 
           console.log(consoleFont_FgMagenta, file + ":");   
          
@@ -79,10 +83,10 @@ function checkSounds(instruments,file){
 };
 
 function getCopyToPath(sourcefile, file){
-  console.log(consoleFont_FgCyan,sourcefile,consoleFont_Reset);
+ // console.log(consoleFont_FgCyan,sourcefile,consoleFont_Reset);
   var filename = sourcefile.split('/').pop();
  var fileNewFolderName = file.split(".")[0]
-  var dest = delugeRootFolderPath+"/SAMPLES/"+fileNewFolderName + "/"+filename
+  var dest = SongsSamplesFolderPath+fileNewFolderName + "/"+filename
 
   return dest;
 };
@@ -169,9 +173,12 @@ function logFiles(text){
 function copyFile(source, destination) {
   
   try{
-  var streem =  fs.createReadStream(source);
-  streem.pipe(fs.createWriteStream(destination));
+    if(!fs.existsSync(destination)){
+      var streem =  fs.createReadStream(source);
+      streem.pipe(fs.createWriteStream(destination));
+  };
   }catch(err){
     console.log(err);
   }
+  
 };
