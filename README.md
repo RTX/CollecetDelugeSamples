@@ -51,7 +51,7 @@ WIN
 
 
 ## When procces is done 
-### Copy the new Songs and folders to Deluge SD 
+### Copy the new songs and folders to Deluge SD 
 
 * make sure you copy also the COLLECTED folder 
 
