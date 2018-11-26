@@ -9,7 +9,7 @@ var  fileData ="";
 var logData = "";
 var delugeSongsFolder = "";
 
-
+// console fonts 
 var consoleFont_Reset = "\x1b[0m"
 var consoleFont_FgBlue = "\x1b[34m";
 var consoleFont_FgRed = "\x1b[31m";
@@ -25,7 +25,7 @@ var consoleFont_FgWhite = "\x1b[37m"
 
 // get Deluge root folder path 
 var delugeRootFolderPath = process.argv[2];
-var SongsSamplesFolderPath = delugeRootFolderPath + "/SAMPLES/SONGS_SAMPLES/";
+var SongsSamplesFolderPath = delugeRootFolderPath + "/SAMPLES/COLLECTED/";
 
 if(delugeRootFolderPath == undefined || delugeRootFolderPath == ""){
   logError("Please enter deluge Root folder path: - $node app.js [root folder path] ");  
@@ -40,6 +40,7 @@ else
 
 // ------------------------------------------------------ //
 
+// scan deluge songs folder 
 function Scan(){
   try{  
     var formatted = dt.format('Y-m-d H:M:S');
@@ -47,33 +48,34 @@ function Scan(){
     console.log(consoleFont_FgYellow,"----------------- Scan Start " + formatted +"-----------------",consoleFont_Reset);          
 
     try{
+      // create a SONGS_SAMPLES folder
       fs.mkdirSync(SongsSamplesFolderPath,0744);
     }catch(err){};
 
     fs.readdirSync(delugeSongsFolder).forEach(file => {
       if(file.startsWith("SONG"))
       {
-         fileData = fs.readFileSync(delugeSongsFolder + "/"+file);
-
+          fileData = fs.readFileSync(delugeSongsFolder + "/"+file);
           xmlData = fileData;
-         // var xmlRootNodeFix ="<root>" + xmlData + "</root>";
-         xmlData = xmlData.toString().replace("<firmwareVersion>2.0.3</firmwareVersion>","");
-         xmlData = xmlData.toString().replace("<earliestCompatibleFirmware>2.0.0</earliestCompatibleFirmware>","");
+          // var xmlRootNodeFix ="<root>" + xmlData + "</root>";
+          xmlData = xmlData.toString().replace("<firmwareVersion>2.0.3</firmwareVersion>","");
+          xmlData = xmlData.toString().replace("<earliestCompatibleFirmware>2.0.0</earliestCompatibleFirmware>","");
          
           var jsonObj = parser.parse(xmlData );
           var filename_noExt = file.split(".")[0];
           try{
+            // create a SONGS <FILENAME> folder 
             fs.mkdirSync( SongsSamplesFolderPath +filename_noExt, 0744);
-          }catch(err){};
-          // add flag   if()          
-
+          }catch(err){};          
           console.log(consoleFont_FgMagenta, file + ":");            
-          var instruments =jsonObj.song.instruments;   
-          
-          checkSounds(instruments,file);
+          var instruments =jsonObj.song.instruments;             
+          checkSynths(instruments,file);
           checkKits(instruments,file);
+          // write the new song file to the <SONG_NAME> folder
           fs.writeFile(SongsSamplesFolderPath  +filename_noExt+ "/NEW-"+file,fileData);
+          // write the missing files into missing-<SONG_NAME>.txt  
           fs.writeFile(SongsSamplesFolderPath +filename_noExt+ "/MISSING-"+filename_noExt + ".txt" ,logData);
+          // clean song and log data
           logData = "";
           fileData = "";
         }
@@ -88,7 +90,7 @@ function Scan(){
   }
 }
 
-function checkSounds(instruments,file){  
+function checkSynths(instruments,file){  
   if(instruments.sound != undefined)  {          
     if(instruments.sound.length == undefined) {
       traversSoundSamples(instruments.sound,file);   
@@ -115,34 +117,28 @@ function checkKits(instruments,file){
   };
 };
 
-
-
 function traversSoundSamples(sound,file){ 
+  // get the songs folder name
   var noExt_filename = file.split(".")[0];
   var osc1_filenpath = sound.osc1.fileName;  
   if(osc1_filenpath != undefined && osc1_filenpath != "")  {
     var osc1_fullFilePath =  delugeRootFolderPath + "/" + osc1_filenpath;
     if (!fs.existsSync(osc1_fullFilePath)) {
-      logFiles("       " + osc1_filenpath );
+      logFiles("\t" + osc1_filenpath );
       }
-      else{
-        
+      else{        
         var dest = getCopyToPath(osc1_fullFilePath,file);
         copyFile(osc1_fullFilePath, dest);
-        
-       // sound.osc1.fileName = dest.replace(delugeRootFolderPath,"");
-
       };
   };
   var osc2_filenpath =  sound.osc2.fileName;
   if(osc2_filenpath != undefined && osc2_filenpath != "")  {    
     var osc2_fullFilePath =  delugeRootFolderPath + "/" + osc2_filenpath
     if (!fs.existsSync(osc2_fullFilePath)) {
-      logFiles("       " + osc2_filenpath );
+      logFiles("\t" + osc2_filenpath );
       }else{
         var dest = getCopyToPath(osc2_fullFilePath,file);
         copyFile(osc2_fullFilePath, dest);
-       // sound.osc2.fileName = dest.replace(delugeRootFolderPath,"");
       };             
   };
 };
@@ -152,10 +148,12 @@ function traversKitSamples(kit,file){
   for(var y=0;y < kit.soundSources.sound.length;y++){
     var osc1_filenpath = kit.soundSources.sound[y].osc1.fileName;
     var osc2_filenpath = kit.soundSources.sound[y].osc2.fileName;
+
+    // check OSC1
     if(osc1_filenpath !=undefined &&  osc1_filenpath != "") {
       var osc1_fullFilePath =  delugeRootFolderPath + "/" + osc1_filenpath
       if (!fs.existsSync(osc1_fullFilePath)) {
-        logFiles("       " + osc1_filenpath );
+        logFiles("\t" + osc1_filenpath );
         } else {
           var dest = getCopyToPath(osc1_fullFilePath,file);
           copyFile(osc1_fullFilePath, dest);
@@ -167,7 +165,7 @@ function traversKitSamples(kit,file){
     if(osc2_filenpath !=undefined && osc2_filenpath != "") {
       var osc2_fullFilePath =  delugeRootFolderPath + "/" + osc2_filenpath
       if (!fs.existsSync(osc2_fullFilePath)) {
-        logFiles("       " + osc2_filenpath );
+        logFiles("\t" + osc2_filenpath );
       } else {
         var dest = getCopyToPath(osc2_fullFilePath,file);
         copyFile(osc2_fullFilePath, dest);
