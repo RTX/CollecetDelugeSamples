@@ -48,10 +48,12 @@ OR
 ```
 
 
-## if you want, you can copy the new song file to the /SONGS folder and hopfully use it 
-### make sure you folow the song name structure 
+## You can copy the new song files to deluge SD 
+### Copy also the COLLECTED folder 
+### rename the file and make sure you folow the song name structure 
+*
 ### it must start with SONG 3 Digits And can be A to Z at the end of the file name 
 ### for example SONG000A.XML 
-
+*
 im sure there are some bugs here and there 
 please go ahead and make this code better :) 
