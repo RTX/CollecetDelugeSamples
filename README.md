@@ -7,11 +7,11 @@ When i recovered it my songs had missing samples   :( <br>
 So iv decided to write a small node script to find missing samples in my song
 <br><br> 
 eventually it came to be a collect samples script 
-<br>
-becouse deluge uses the samples folder for all somgs I had problems with re-arranging my samples folder. 
-if i changed the samples location my songs stops working 
+<br><br>
+The currant status is that deluge uses the same samples folder for all songs, if you try to change a sample location you might end up with missing files in your songs 
 
-I hope Collect Song will be part of deluge next Versions :) 
+<br><br>
+## Im sure "Collect Song" will be part of deluge next Versions :) 
 
 
 ## So what it does :)
