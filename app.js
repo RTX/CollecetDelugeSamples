@@ -71,10 +71,21 @@ function Scan(){
           checkSynths(instruments,file);
           checkKits(instruments,file);
           // write the new song file to the <SONG_NAME> folder
-          fs.writeFile(SongsSamplesFolderPath  +filename_noExt+ "/NEW-"+file,fileData);
+          var newSongfilePath = SongsSamplesFolderPath  +filename_noExt+ "/NEW-"+file;
+          fs.writeFile(newSongfilePath ,fileData, (err) => {
+            if (err) throw err;
+            //console.log('The file has been saved!');
+            });
+
+
           // write the missing files into missing-<SONG_NAME>.txt  
-          fs.writeFile(SongsSamplesFolderPath +filename_noExt+ "/MISSING-"+filename_noExt + ".txt" ,logData);
-          // clean song and log data
+          var newMissingfilePath = SongsSamplesFolderPath +filename_noExt+ "/MISSING-"+filename_noExt + ".txt";
+
+          fs.writeFile(newMissingfilePath, logData, (err) => {
+            if (err) throw err;
+            //console.log('The file has been saved!');
+            });
+
           logData = "";
           fileData = "";
         }
