@@ -46,3 +46,9 @@ OR
     $ node app.js  /volume/deluge
    
 ```
+
+
+if you like you can copy the song file to the /SONGS folder and hopfully use it 
+
+im sure there are some bugs here and there 
+please go ahead and make this code better :) 
