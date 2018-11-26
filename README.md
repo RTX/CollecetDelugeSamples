@@ -55,5 +55,9 @@ OR
 ### it must start with SONG 3 Digits And can be A to Z at the end of the file name 
 ### for example SONG000A.XML 
 *
+
+The script dosnt change any of the Deluge filse or your songs 
+its just making a copy of every sample contained in the song 
+
 im sure there are some bugs here and there 
 please go ahead and make this code better :) 
