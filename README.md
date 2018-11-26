@@ -6,9 +6,17 @@ When i recovered it i had missing samples in my songs:(
 
 . so i decided to write a small node script to find missing samples in my song 
 eventually it came to be a collect samples script 
+
+## What it does :)
+*   go threw the SONGS folder 
+*   create a new Song folder inside /SAMPLES/COLLECTED/ folder
+*   copy all the samplesfor each song in to his folder
+*   create a new song file with the new samples path in the same folder 
+*   create a Missing.txt file in the same folder that contains missing files if there are any 
+
 <br>
 
-## How to use it 
+## Howto ... 
 
 ### Install Node 
 Make sure you have nodejs installed on your computer 
