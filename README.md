@@ -52,7 +52,7 @@ OR
 ### You can copy the new song files to deluge SD 
 Copy also the COLLECTED folder 
 rename the file and make sure you folow the song name structure 
-*   it must start with SONG 3 Digits And can be A to Z at the end of the file name 
+*   it must start with SONG, 3 Digits And can Optional A to Z at the end of the file name for Versions 
 *   for example SONG000A.XML 
 
 
