@@ -1,6 +1,5 @@
 var fs = require('fs');
 var parser = require('fast-xml-parser');
-var js2xmlparser = require("js2xmlparser")
 var dateTime = require('node-datetime');
 
 
