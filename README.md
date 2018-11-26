@@ -11,7 +11,7 @@ eventually it came to be a collect samples script
 *   go threw the SONGS folder 
 *   create a new Song folder for each inside /SAMPLES/COLLECTED/ folder
 *   copy all the samples for each song in to the new song folder inside /SAMPLES/COLLECTED/ 
-    for example /SAMPLES/COLLECTED/SONG000
+    <br>for example /SAMPLES/COLLECTED/SONG000
 *   create a new song file with the new samples path in the same folder 
 *   create a Missing.txt file in the same folder that contains missing files if there are any 
 
