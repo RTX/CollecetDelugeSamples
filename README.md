@@ -1,13 +1,16 @@
-# Collect Songs Samples for Synthtrom Deluge v 2.0.x 
+# Collect Songs Samples for Synthstrom Deluge v 2.0.x 
 
 <br>
-So a few days ago I had some problems with my SD 
-When i recovered it i had missing samples in my songs:( 
+A few days ago I had some problems with my SD <br>
+When i recovered it my songs had missing samples   :( <br>
 
-. so i decided to write a small node script to find missing samples in my song 
+So iv decided to write a small node script to find missing samples in my song
+<br><br> 
 eventually it came to be a collect samples script 
 
-## What it does :)
+
+## So what it does :)
+
 *   go threw the SONGS folder 
 *   create a new Song folder for each inside /SAMPLES/COLLECTED/ folder
 *   copy all the samples for each song in to the new song folder inside /SAMPLES/COLLECTED/ 
@@ -17,47 +20,53 @@ eventually it came to be a collect samples script
 
 <br>
 
-## Howto ... 
+## Download executable
 
-### Install Node 
-Make sure you have nodejs installed on your computer 
-You can find nodejs installer here : https://nodejs.org/en/download/
+Download the suitable executable form 
 
-### Clone  
-clone this repo to your local drive 
+https://github.com/RTX/CollectDelugeSamples/blob/master/Builds.md
 
-### Backup
-Make a local copy of deluge SD card on your computer
-At this point i strongly suggest you do it on a local copy !!!!
-
-******** You can work directly on the SD card on your own risk ********
 
 ### Run
 Open a terminal window 
-Go to the cloned folder 
-Run the app.js file with the path to the  Deluge RootFolder  
+Go to the folder you place your downloaded cellect executable 
+
+MAC 
 ```{r, engine='bash', count_lines}
-    $ node app.js  C:\Downloads\DelugeRootFolder
+    $ ./collect-macos  C:\Downloads\DelugeRootFolder
+   
+```
+LINUX 
+```{r, engine='bash', count_lines}
+    $ ./collect-linux  C:\Downloads\DelugeRootFolder
    
 ```
 
-OR
+WIN
 
 ```{r, engine='bash', count_lines}
-    $ node app.js  /volume/deluge
+    $ collect-win  C:\Downloads\DelugeRootFolder
    
 ```
 
-## Copy the new Songs and folders to Deluge SD 
-### You can copy the new song files to deluge SD 
-Copy also the COLLECTED folder 
-rename the file and make sure you folow the song name structure 
-*   it must start with SONG, 3 Digits And can Optional A to Z at the end of the file name for Versions 
-*   for example SONG000A.XML 
+
+## When procces is done 
+### Copy the new Songs and folders to Deluge SD 
+
+* make sure you copy also the COLLECTED folder 
+
+* rename the song files and copy them to the SONGS folder 
+* folow the song name structure <br> start with SONG, 3 Digits And can Optional A to Z at the end of the file name for Versions 
+<br>for example SONG000A.XML 
 
 
-The script dosnt change any of the Deluge filse or your songs 
+The script will not change any of the Deluge filse or your songs 
 its just making a copy of every sample contained in the song 
 
-im sure there are some bugs here and there 
+
+
+there are probebly some bugs here and there 
 please go ahead and make this code better :) 
+
+Thanks Synthstrom 
+https://synthstrom.com/product/deluge/
