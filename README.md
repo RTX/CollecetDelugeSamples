@@ -23,26 +23,28 @@ eventually it came to be a collect samples script
 
 <br>
 
-## Download executable
+## Downloads
 
-Download the suitable executable form [HERE](https://github.com/RTX/CollectDelugeSamples/blob/master/Builds.md)
+Builds are cross platform 
+you can download executables [HERE](https://github.com/RTX/CollectDelugeSamples/blob/master/Builds.md)
 <br>
 
 ## Backup Deluge SD 
 
 Make a local copy of deluge SD card on your computer
-At this point i strongly suggest you do it on a local copy !!!!
+<i>At this point i strongly suggest you do it on a local copy !!!!</i>
 
-******** You can work directly on the SD card on your own risk ********
+<b>******** You can work directly on the SD card on your own risk ********</b>
 <br>
 
 ### Run
+
 Open a terminal window 
-Nevigate to the downloaded cellect executable location .... 
+Nevigate to the download location .... 
 
-Run executable with the path to your deluge local SD copy 
+Run executable from command line and add the path to your deluge local SD copy 
 
-MAC 
+MAC-OS
 ```{r, engine='bash', count_lines}
     $ ./collect-macos  C:\Downloads\DelugeRootFolder
    
@@ -53,7 +55,7 @@ LINUX
    
 ```
 
-WIN
+WINDOWS
 
 ```{r, engine='bash', count_lines}
     $ collect-win  C:\Downloads\DelugeRootFolder
