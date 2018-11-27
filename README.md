@@ -31,6 +31,14 @@ Download the suitable executable form
 https://github.com/RTX/CollectDelugeSamples/blob/master/Builds.md
 
 
+### Backup Deluge SD 
+
+Make a local copy of deluge SD card on your computer
+At this point i strongly suggest you do it on a local copy !!!!
+
+******** You can work directly on the SD card on your own risk ********
+
+
 ### Run
 Open a terminal window 
 Nevigate to the downloaded cellect executable location .... 
