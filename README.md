@@ -22,6 +22,10 @@ eventually it came to be a collect samples script
 *   create a Missing.txt file in the same folder that contains missing files if there are any 
 
 <br>
+## Download executable
+
+Download the suitable executable form [HERE](https://github.com/RTX/CollectDelugeSamples/blob/master/Builds.md)
+<br>
 
 ## Backup Deluge SD 
 
@@ -30,16 +34,6 @@ At this point i strongly suggest you do it on a local copy !!!!
 
 ******** You can work directly on the SD card on your own risk ********
 <br>
-
-## Download executable
-
-Download the suitable executable form 
-
-https://github.com/RTX/CollectDelugeSamples/blob/master/Builds.md
-
-
-
-
 
 ### Run
 Open a terminal window 
@@ -84,5 +78,5 @@ its just making a copy of every sample contained in the song
 there are probebly some bugs here and there 
 please go ahead and make this code better :) 
 
-Thanks Synthstrom 
+Thanks Synthstrom <br>
 https://synthstrom.com/product/deluge/
