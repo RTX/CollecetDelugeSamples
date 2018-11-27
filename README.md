@@ -1,16 +1,15 @@
 # Collect Songs Samples for Synthstrom Deluge v 2.0.x 
 
-<br>
-A few days ago I had some problems with my SD <br>
-When i recovered it my songs had missing samples   :( <br>
 
-So iv decided to write a small node script to find missing samples in my song
-<br><br> 
-eventually it came to be a collect samples script 
-<br><br>
 The currant status is that deluge uses the same samples folder for all songs, if you try to change a sample location you might end up with missing files in your songs 
 <br><br>
 Im sure "Collect Song" will be part of deluge next Versions :) 
+but for now... 
+<br>
+Iv decided to write a small node script to find missing samples in my song / Samples
+<br><br> 
+eventually it came to be a collect samples script 
+<br><br>
 
 
 ## So what it does :)
