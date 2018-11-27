@@ -15,7 +15,7 @@ eventually it came to be a collect samples script
 ## So what it does :)
 
 *   go threw the SONGS folder 
-*   create a new Song folder for each inside /SAMPLES/COLLECTED/ folder
+*   for each song, i create a new Song folder inside /SAMPLES/COLLECTED/ 
 *   copy all the samples for each song in to the new song folder inside /SAMPLES/COLLECTED/ 
     <br>for example /SAMPLES/COLLECTED/SONG000
 *   create a new song file with the new samples path in the same folder 
