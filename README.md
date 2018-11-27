@@ -33,7 +33,9 @@ https://github.com/RTX/CollectDelugeSamples/blob/master/Builds.md
 
 ### Run
 Open a terminal window 
-Go to the folder you place your downloaded cellect executable 
+Nevigate to the downloaded cellect executable location .... 
+
+Run executable with the path to your deluge local SD copy 
 
 MAC 
 ```{r, engine='bash', count_lines}
